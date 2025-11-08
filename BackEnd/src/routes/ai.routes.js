@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import { getResponse } from "../controllers/ai.controller.js";
+import { getReview } from "../controllers/ai.controller.js";
 
 const router = Router();
 
 
-router.get("/get-response", getResponse)
+router.post("/get-review", getReview)
 
 
 export default router;  
