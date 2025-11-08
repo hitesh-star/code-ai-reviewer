@@ -41,6 +41,7 @@ main .left{
 
 main .right{
   background-color: #343434;
+  color: white;
 }
 main .left .review{
   position: absolute;
