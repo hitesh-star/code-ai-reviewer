@@ -42,7 +42,11 @@ main .left{
 main .right{
   background-color: #343434;
   color: white;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  overflow: auto;
 }
+
 main .left .review{
   position: absolute;
   bottom: 1rem;

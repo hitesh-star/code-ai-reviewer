@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_KEY);
 const model = genAI.getGenerativeModel({ 
     model: "gemini-2.0-flash",
-    systemInstruction:`Here’s a solid system instruction for your AI code reviewer:
+    systemInstruction: `Here’s a solid system instruction for your AI code reviewer:
 
                 AI System Instruction: Senior Code Reviewer (7+ Years of Experience)
 
@@ -38,11 +38,13 @@ const model = genAI.getGenerativeModel({
                 Output Example:
 
                 ❌ Bad Code:
-
-                function fetchData() {
+                \`\`\`javascript
+                                function fetchData() {
                     let data = fetch('/api/data').then(response => response.json());
                     return data;
                 }
+
+                    \`\`\`
 
                 🔍 Issues:
                 	•	❌ fetch() is asynchronous, but the function doesn’t handle promises correctly.
@@ -50,6 +52,7 @@ const model = genAI.getGenerativeModel({
 
                 ✅ Recommended Fix:
 
+                        \`\`\`javascript
                 async function fetchData() {
                     try {
                         const response = await fetch('/api/data');
@@ -60,6 +63,7 @@ const model = genAI.getGenerativeModel({
                         return null;
                     }
                 }
+                   \`\`\`
 
                 💡 Improvements:
                 	•	✔ Handles async correctly using async/await.
@@ -70,7 +74,7 @@ const model = genAI.getGenerativeModel({
 
                 Your mission is to ensure every piece of code follows high standards. Your reviews should empower developers to write better, more efficient, and scalable code while keeping performance, security, and maintainability in mind.
 
-                Would you like any adjustments based on your specific needs? 🚀 `
+                Would you like any adjustments based on your specific needs? 🚀`
  });
 
 
